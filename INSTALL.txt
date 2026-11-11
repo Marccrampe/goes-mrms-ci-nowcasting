@@ -1,0 +1,43 @@
+NOTEBOOK UPDATE — nothing is published automatically.
+
+Extract this ZIP. Copy its notebooks/, tools/, examples/, docs/figures/,
+tests/ and requirements-case-demo.txt into the SAME paths in your repository.
+Back up your current notebooks/quickstart.ipynb first; this update replaces it.
+The optional model-inference section uses the existing repository files and
+weights Release. It does not require another upload of the weights.
+
+The notebook includes three manuscript figures directly in its Markdown cells.
+They remain visible when opening the notebook without running code.
+
+COLAB BEFORE UPLOADING THE UPDATE TO GITHUB
+Open notebooks/quickstart.ipynb through Colab's Upload notebook menu.
+Run the setup cell, then select this ZIP when requested.
+Run the validation, object explorer and radar player cells.
+No GPU or checkpoint is needed for these sections.
+
+COLAB AFTER UPLOADING TO GITHUB
+Your existing README Colab button continues to point to notebooks/quickstart.ipynb.
+The setup cell clones the repository and uses the committed single-case assets.
+
+LOCAL
+python -m pip install -r requirements-case-demo.txt
+python -m unittest discover -s tests -p test_case_demo.py
+Open notebooks/quickstart.ipynb in Jupyter and run the cells in order.
+
+CASE
+25 July 2025, 19:00 UTC. Actual split TRAIN. Only (0,30] forecast exists.
+Original raw threshold 0.05, strict 5 km, forecast minimum two pixels.
+Saved growth diagnostic: >=25 dBZ / P5 / 15 km / native birth >=1 pixel.
+P10/P15/P20 options are evaluated from the exported lineage profiles.
+Strict FN are preserved in this Fig11 diagnostic. No competition-FN recovery,
+no duplicate-forecast promotion and no S12-style alternative accounting.
+
+All matching is full-domain before display zoom. Changing a diagnostic radius,
+persistence or candidate area never changes strict matching or probabilities.
+Changing the probability threshold changes only the exploratory forecast objects.
+Restore original settings with the reset button.
+
+The package retains the supplied immutable case export and its source hashes.
+Files in its code/ folder are evidence; notebook runtime uses tools/object_demo*.py.
+No cluster files, manuscript figures, scientific result files or original model
+code have been modified. The supplied manuscript images are static context.

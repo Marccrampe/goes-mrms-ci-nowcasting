@@ -1,0 +1,58 @@
+{
+  "input_sha256": {
+    "/crest/students/mcrampe00/PDE_CNN_precip/experiments/ci_case_study_eval_v1/config.json": "c262321ce741349570fa9d6914df3377f9ea9c3aa4d75a3f809b2a2962158806",
+    "/crest/students/mcrampe00/PDE_CNN_precip/experiments/ci_case_study_eval_v1/20250725/T0_20250725T190000_decisions.json": "748f2d39646203769b5220426244e9742694642c96fd02a26f3506f714c8ffdf",
+    "/crest/students/mcrampe00/PDE_CNN_precip/experiments/ci_case_study_eval_v1/selected_issuances.csv": "41c78209b85366bc6d3af2728079200b6b5289537d36a8e987a1914930742747",
+    "/crest/students/mcrampe00/PDE_CNN_precip/experiments/ci_case_study_eval_v1/20250725/cache/T0_20250725T190000.json": "b4cb11d79d5405cea4a2b52a3bc43a19bc581c18eb88cc74603970e73ab534de",
+    "/crest/students/mcrampe00/PDE_CNN_precip/experiments/ci_case_study_eval_v1/20250725/cache/T0_20250725T190000.npz": "502611c5bf18eef39ae3e26271bba53a6b63cfe99e57d43706caf0c31a15c6f9",
+    "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_common_exploratory_core.py": "c4654b1468c41647891b6ddfb4219c05cfe7a8292f94985f93e87f4eeaca1530",
+    "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_v4_relaxed_core.py": "fcb1e864d5f43c140d03885556631f1fce6f1fe7c3d4a6f15c12b03edc9882ae",
+    "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/build_ci_soft_targets_native_goes.py": "94bc02e5c74b5dcb97c95cf6e2274eef0c4ccae8be482ed0f06f1550afcfb44a",
+    "/crest/students/mcrampe00/PDE_CNN_precip/experiments/ci_case_study_eval_v1/object_ledger.csv": "d39cc1f5e32bf807f41cbf8ad94a79ea959329ab6e8d810b1f934ae908600abd",
+    "/crest/students/mcrampe00/PDE_CNN_precip/font_nature/Arial.ttf": "525979822591a3447cfc49d943d6f7683508e25543407871c0ed8fed05fd2bd9",
+    "/crest/students/mcrampe00/PDE_CNN_precip/font_nature/Arial Bold.ttf": "d72db21f9242aedd6b917d8549ad5921766b24d5f8d0becfda2ff4c620b3c2e0"
+  },
+  "radar_store": "/crest/students/mcrampe00/PDE_CNN_precip/data/ci_isolated_mrms_binary_v1/year_2025_strict_v2_001/periods/PERIOD_77b4fa7b1c66677da43a3c0d/reflectivity.zarr",
+  "scan_audit": [
+    {
+      "requested_offset_min": 8,
+      "requested_time": "2025-07-25 19:08:00",
+      "actual_time": "2025-07-25 19:08:41+00:00",
+      "actual_offset_min": 8.683333333333334,
+      "source_index": 554,
+      "decoded_array_sha256": "0f8293a7b854d4e9ec2eae6a91c58d396bf8709f1fa0b443c4d80bb8f2f242bc"
+    },
+    {
+      "requested_offset_min": 18,
+      "requested_time": "2025-07-25 19:18:00",
+      "actual_time": "2025-07-25 19:18:39+00:00",
+      "actual_offset_min": 18.65,
+      "source_index": 559,
+      "decoded_array_sha256": "be1d58d1775a1da575b82af50d435326497f7219808925f0fe3363ac8d6ddf18"
+    },
+    {
+      "requested_offset_min": 28,
+      "requested_time": "2025-07-25 19:28:00",
+      "actual_time": "2025-07-25 19:28:43+00:00",
+      "actual_offset_min": 28.716666666666665,
+      "source_index": 564,
+      "decoded_array_sha256": "919d03dd95d3bd456e0530384e874144634e57b5746d1e293a9580aa6da3356e"
+    }
+  ],
+  "split": "train",
+  "threshold": 0.05,
+  "diagnostic_persistence_minutes": 5,
+  "code_sha256": {
+    "snapshots.py": "ca94df1fab80e0e177abfcc3c5200cd47c1b951122023e64ac978468f0867884",
+    "draw.py": "65ac0c37e40c3404b9768c5aa9da8925ba85c5cda48228cb11ff0db43f299e69",
+    "run.py": "7739b4b73353318360ada080e38919f0b5853e48026b7f5baf496129632f2f60",
+    "common.py": "6e5039421aaaf9b9e1326a07d4b7f43063598e2a3ad9c4f09cdb4183d72fb9b7",
+    "tests.py": "7e2958aef80ea473eb7e1439ca5870d2d733f07592d96741f6757f2fe1bd0aef"
+  },
+  "archived_decisions_reused": true,
+  "inference": false,
+  "verification_recomputed": false,
+  "previous_config_diagnostic_disagrees_with_saved_score": true,
+  "output": "visual_20261108T203139389764Z/T0_20250725T190000_Fig11_future_radar.png",
+  "manual_visual_review_required": true
+}

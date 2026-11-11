@@ -13,17 +13,25 @@ Marc Crampe<sup>1,2,3,*</sup> · Corey K. Potvin<sup>5,6</sup> · Jacob T. Carli
 
 </div>
 
-## Try the model first
+## Explore the paper and try the model
 
-Open the **Colab demo** above to load the released model, run CPU inference on
-a real miniature TEST sample, and explore the input history and forecast windows.
-The notebook downloads the checkpoint from this repository's latest published
-Release and verifies its SHA-256. No GPU is needed for this demonstration.
+Open the **Colab notebook** above for three commented manuscript figures and an
+interactive full-domain case study. Change the probability threshold, radar
+persistence, growth-association radius and minimum native birth area; inspect
+forecast objects individually and play the radar sequence.
 
-![Real miniature GOES and MRMS inputs with two model probability outputs](docs/figures/demo_preview.png)
+The case is initialized **25 July 2025 at 19:00 UTC** and belongs to the **TRAIN**
+split. It illustrates verification; it is not an independent skill estimate.
+Its archived output covers **0–30 min**. The notebook checks that the original
+strict counts (7 TP / 10 FP / 9 FN) and growth associations reproduce before
+opening the controls. All matching occurs on the full domain before display zoom.
 
-*Real 64 × 64 TEST crop and raw model probabilities. This is an execution
-demonstration, not a full-domain case-study verification or a calibrated product.*
+![Interactive case-study overview](docs/figures/interactive_case_preview.png)
+
+The optional final section runs CPU inference on the separate real miniature
+**TEST** sample, producing both forecast windows. Only that optional section
+downloads the ~309-MiB checkpoint and verifies its SHA-256. No GPU is needed
+for either demonstration. See [case-demo setup and limits](docs/interactive_case.md).
 
 ## About the paper
 

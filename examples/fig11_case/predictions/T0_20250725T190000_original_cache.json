@@ -1,0 +1,28 @@
+{
+  "contract": {
+    "checkpoint_sha256": "9231c9bb9aa540717986c1ae729cdbbf56629ed74b072de10a200be4f9ae507e",
+    "normalization_sha256": "17311e1606c9dc8487d89385bc3ba1e3b104da46ad4e29038f4f52f9d5ff3845",
+    "readers_sha256": {
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_goes_patch_dataset.py": "586ad620d4190763b5895be31d95b772b39c488ddd63efed0a168754873cad93",
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_goes_v3_30min_dataset.py": "25ee6054e8b28af41a55a80a577e22ea659a2decc6f172ea2aa61e80b232a14c",
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_goes_mrms_v3_dataset.py": "bee69d6f48432be36b4c103127d8aba47522a6a3b2cc53483b52f77f43c6ce5a",
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/build_ci_soft_targets_native_goes.py": "94bc02e5c74b5dcb97c95cf6e2274eef0c4ccae8be482ed0f06f1550afcfb44a",
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/train_ci_a_radar_features.py": "fcc3316bc83de1907b3cbc1bdb65d21b27329993e469b2aeec1a791a7eb5688e",
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/train_ci_a3_inflation.py": "64c91f2b9eb79f8d0911b7cd492faab374ceaa99b6a7653dac0c3dc58770f5dd",
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/train_ci_v4_paired.py": "51f7620a14d8afa554a83a9df2694dabc6e6a4623db00e2ec8b13be9b6cea86e",
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/review_ci_v4_false_alarms.py": "0fa9ca6acc423cad8d438ae696cd65048502e27257b1bcc20d8e21793f0af7df",
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_tiny_echo_growth_v1.py": "52c359e3c9ec54a29bd5bd7fb42ee342090669da4ae8342a58073f56da6d4895",
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_common_exploratory_core.py": "c4654b1468c41647891b6ddfb4219c05cfe7a8292f94985f93e87f4eeaca1530",
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_I4_mesh_core_v1.py": "7e183a711c60763acbfd65c23cdb44a36b921876a5c6a97b3af3308632825515",
+      "/crest/students/mcrampe00/PDE_CNN_precip/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_v4_relaxed_core.py": "fcb1e864d5f43c140d03885556631f1fce6f1fe7c3d4a6f15c12b03edc9882ae"
+    },
+    "input_arrays_sha256": "b87b8eee47d7cc94679215f087b7bad1079b47efb555901845179cd4b930083f",
+    "shape": [
+      212,
+      230
+    ],
+    "issuance_time": "2025-07-25 19:00:00",
+    "period_id": "PERIOD_77b4fa7b1c66677da43a3c0d"
+  },
+  "sha256": "502611c5bf18eef39ae3e26271bba53a6b63cfe99e57d43706caf0c31a15c6f9"
+}

@@ -1,0 +1,49 @@
+{
+  "original_hashes_and_associations_verified": true,
+  "strict_counts": {
+    "tp": 7,
+    "fp": 10,
+    "fn": 9,
+    "observed_objects": 16,
+    "predicted_objects": 17,
+    "accepted_growth": 8,
+    "remaining_FP": 2,
+    "duplicate_FP_not_promoted": 0,
+    "FN_covered": 2,
+    "FN_uncovered": 7
+  },
+  "tests_passed": 5,
+  "notebook_post_setup_cells_executed_locally": true,
+  "probability_and_persistence_widget_callbacks_tested": true,
+  "local_visual_review": true,
+  "live_google_colab_tested": false,
+  "github_published": false,
+  "cluster_accessed": false,
+  "checkpoint_inference_rerun": false,
+  "known_limits": [
+    "Actual split TRAIN",
+    "Only 0\u201330 min case forecast",
+    "Only >=25-dBZ candidate lineages",
+    "Fig11 growth diagnostic retains strict FN; distinct from competition recovery"
+  ],
+  "metrics": [
+    {
+      "Verification": "Strict CI35 \u00b7 one-to-one \u00b7 5 km",
+      "Hits / accepted forecasts": 7,
+      "FP": 10,
+      "FN (strict observations)": 9,
+      "CSI / diagnostic CSI*": 0.2692307692307692,
+      "POD / diagnostic POD*": 0.4375,
+      "FAR / diagnostic FAR*": 0.5882352941176471
+    },
+    {
+      "Verification": "Growth diagnostic \u00b7 strict FN retained",
+      "Hits / accepted forecasts": 15,
+      "FP": 2,
+      "FN (strict observations)": 9,
+      "CSI / diagnostic CSI*": 0.5769230769230769,
+      "POD / diagnostic POD*": 0.625,
+      "FAR / diagnostic FAR*": 0.11764705882352941
+    }
+  ]
+}
