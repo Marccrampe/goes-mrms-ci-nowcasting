@@ -1,0 +1,27 @@
+This is a small README/demo update, not the full repository.
+
+Upload these files into the SAME paths in your GitHub repository:
+  README.md
+  requirements-demo.txt
+  notebooks/quickstart.ipynb
+  tools/demo_support.py
+  tools/render_demo_preview.py
+  docs/figures/demo_preview.png
+  docs/release.md
+  CITATION.cff
+
+The new notebook uses the public repository and its latest published Release.
+The Release asset must be named exactly:
+  goes_mrms_ci35_hard_r2.pt
+The notebook checks its SHA-256 before inference. A private repository/asset
+requires authenticated access; the public Colab flow assumes a public repo.
+The Colab button assumes the main branch.
+
+The supplied image was generated from the actual included miniature case and
+the released model output. It is not a fabricated forecast or a verification figure.
+
+No model/training/scientific-result code is replaced. The interactive controls
+change only which history frame/window and colour scale are displayed.
+
+Still to complete by authors:
+  paper/preprint URL, publication status, chosen code licence.
