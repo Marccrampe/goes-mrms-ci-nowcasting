@@ -1,0 +1,7 @@
+# Inference, target-transform and numerical verification tests; Python >=3.11.
+numpy>=1.26,<3
+torch>=2.2,<3
+scipy>=1.13,<2
+pandas>=2.2,<3
+zarr>=2.18,<3
+numcodecs>=0.12,<0.16

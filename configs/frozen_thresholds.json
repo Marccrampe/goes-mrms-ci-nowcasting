@@ -1,0 +1,11 @@
+{
+  "selection_split": "validation",
+  "selection_metric": "strict one-to-one CI35 CSI",
+  "thresholds": {
+    "I4_CI35": [
+      0.075,
+      0.015
+    ]
+  },
+  "source": "reviewed strict-VAL thresholds for the released final I4 checkpoint"
+}

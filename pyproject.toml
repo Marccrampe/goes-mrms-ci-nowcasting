@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "goes-mrms-ci-nowcasting"
+version = "0.1.0"
+description = "GOES–MRMS convective-initiation nowcasting research workflows"
+requires-python = ">=3.11"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements-demo.txt"]}
+
+[tool.setuptools.packages.find]
+include = ["ci_nowcasting*", "models*", "verification*", "preprocessing*", "catalogue*", "experiments*"]
+
+# Use the source checkout for workflow files and released example/weights.
+# A standalone wheel is not the paper distribution.

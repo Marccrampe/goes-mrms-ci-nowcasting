@@ -1,0 +1,393 @@
+Python: 3.13.3 (main, Apr  8 2025, 13:54:08) [Clang 16.0.0 (clang-1600.0.26.6)]
+Platform: macOS-26.6.2-arm64-arm-64bit-Mach-O
+COMMAND: -m unittest discover -s tests -v
+INFLATION NUMERICAL SELFTEST PASSED: soft/hard identical support, real physical disks, masks, anisotropy, empty cases, pre-crop transform
+
+test_archived_target_transform (test_release.ReleaseTests.test_archived_target_transform) ... ok
+test_cpu_training_gradient_step (test_release.ReleaseTests.test_cpu_training_gradient_step) ... ok
+test_frozen_threshold_table (test_release.ReleaseTests.test_frozen_threshold_table) ... ok
+test_original_matching_and_recovery_cases (test_release.ReleaseTests.test_original_matching_and_recovery_cases) ... ok
+test_public_model_matches_original_weights_and_logits (test_release.ReleaseTests.test_public_model_matches_original_weights_and_logits) ... ok
+test_real_checkpoint_and_miniature (test_release.ReleaseTests.test_real_checkpoint_and_miniature) ... ok
+test_strict_cli_counts_and_separate_association (test_release.ReleaseTests.test_strict_cli_counts_and_separate_association) ... ok
+test_target_wrapper_preserves_validation_and_anchors (test_release.ReleaseTests.test_target_wrapper_preserves_validation_and_anchors) ... ok
+test_two_model_input_contracts (test_release.ReleaseTests.test_two_model_input_contracts) ... ok
+test_workspace_relocation (test_release.ReleaseTests.test_workspace_relocation) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 4.145s
+
+OK
+
+COMMAND: notebooks/run_quickstart.py
+OUTPUT /Users/marccrampe/Documents/ChatGPT/NSSL/main_model_release_v2/goes-mrms-ci-nowcasting/outputs/mini_case_output.npz
+SHAPE (1, 2, 64, 64)
+REAL QUICKSTART PASSED
+
+
+COMMAND: models/train.py --help
+usage: train.py [-h] --config CONFIG [--smoke] [--check-only]
+
+Portable training with archived model/loss/sampler and pre-crop targets.
+
+options:
+  -h, --help       show this help message and exit
+  --config CONFIG
+  --smoke          One epoch, 3 train and 2 validation batches
+  --check-only     Validate real dataset/cohorts without training
+
+
+COMMAND: verification/strict_ci35/score.py --help
+usage: score.py [-h] --input INPUT --thresholds THRESHOLDS --model MODEL
+                --output OUTPUT [--association]
+
+Full-domain strict CI35 scoring with optional separate association
+diagnostics.
+
+options:
+  -h, --help            show this help message and exit
+  --input INPUT         Full-domain NPZ; documented in docs/verification.md
+  --thresholds THRESHOLDS
+                        VALIDATION-selected threshold JSON
+  --model MODEL
+  --output OUTPUT
+  --association         Write separately named association diagnostics
+
+
+COMMAND: pipeline.py binary20-build -- --selftest
+NATIVE SEED / ANISOTROPIC ENVELOPE / ISOLATION LIMIT / PRIOR FLAG SELFTEST PASSED
+V4 BINARY20 BUILD SELFTEST PASSED
+
+
+COMMAND: pipeline.py binary20-qc -- --selftest
+V4 TARGET INTEGRITY SELFTEST PASSED
+
+
+COMMAND: pipeline.py candidate-catalogue -- --help
+usage: 20_scan_cids_strict_mrms_windows.py [-h] --year YEAR
+                                           [--start-date START_DATE]
+                                           [--end-date END_DATE]
+                                           [--window-manifest WINDOW_MANIFEST]
+                                           [--bbox LAT_MIN LAT_MAX LON_MIN LON_MAX]
+                                           [--threshold-dbz THRESHOLD_DBZ]
+                                           [--min-area-px MIN_AREA_PX]
+                                           [--analysis-step-min ANALYSIS_STEP_MIN]
+                                           [--time-tolerance-sec TIME_TOLERANCE_SEC]
+                                           [--edge-buffer-px EDGE_BUFFER_PX]
+                                           [--min-valid-fraction MIN_VALID_FRACTION]
+                                           [--output-root OUTPUT_ROOT]
+                                           [--temp-root TEMP_ROOT] [--resume]
+                                           [--overwrite] [--max-days MAX_DAYS]
+
+options:
+  -h, --help            show this help message and exit
+  --year YEAR
+  --start-date START_DATE
+  --end-date END_DATE
+  --window-manifest WINDOW_MANIFEST
+                        Parquet/CSV with window_start_utc and window_end_utc.
+                        When supplied, only anchors inside these windows are
+                        scanned.
+  --bbox LAT_MIN LAT_MAX LON_MIN LON_MAX
+  --threshold-dbz THRESHOLD_DBZ
+  --min-area-px MIN_AREA_PX
+  --analysis-step-min ANALYSIS_STEP_MIN
+  --time-tolerance-sec TIME_TOLERANCE_SEC
+  --edge-buffer-px EDGE_BUFFER_PX
+  --min-valid-fraction MIN_VALID_FRACTION
+  --output-root OUTPUT_ROOT
+  --temp-root TEMP_ROOT
+  --resume
+  --overwrite
+  --max-days MAX_DAYS
+
+
+COMMAND: pipeline.py native-periods -- --help
+usage: pipeline.py [-h] --config CONFIG [--plan] [--dry-run] [--year YEAR]
+                   [--period-id PERIOD_ID] [--resume] [--finalize]
+                   [--validate]
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG
+  --plan
+  --dry-run
+  --year YEAR
+  --period-id PERIOD_ID
+  --resume
+  --finalize
+  --validate
+
+
+COMMAND: pipeline.py native-label-index -- --help
+usage: build_label_index.py [-h] --root ROOT
+                            --max-forecast-minutes MAX_FORECAST_MINUTES
+                            [--output OUTPUT]
+
+options:
+  -h, --help            show this help message and exit
+  --root ROOT
+  --max-forecast-minutes MAX_FORECAST_MINUTES
+  --output OUTPUT
+
+
+COMMAND: pipeline.py goes-requests -- --help
+usage: build_request_manifest.py [-h] [--years YEARS [YEARS ...]]
+                                 [--output-dir OUTPUT_DIR]
+
+options:
+  -h, --help            show this help message and exit
+  --years YEARS [YEARS ...]
+  --output-dir OUTPUT_DIR
+
+
+COMMAND: pipeline.py goes-inventory -- --help
+usage: build_s3_manifest.py [-h] [--requests REQUESTS]
+                            [--output-dir OUTPUT_DIR] [--refresh]
+                            [--max-requests MAX_REQUESTS]
+
+options:
+  -h, --help            show this help message and exit
+  --requests REQUESTS
+  --output-dir OUTPUT_DIR
+  --refresh
+  --max-requests MAX_REQUESTS
+
+
+COMMAND: pipeline.py goes-parallax -- --help
+usage: build_parallax_native_streaming.py [-h] [--manifest MANIFEST]
+                                          [--output-root OUTPUT_ROOT]
+                                          [--state-root STATE_ROOT]
+                                          [--temp-root TEMP_ROOT]
+                                          [--year YEAR] [--month MONTH]
+                                          [--start START] [--end END]
+                                          [--max-frames MAX_FRAMES]
+                                          [--max-attempts MAX_ATTEMPTS]
+                                          [--download-workers DOWNLOAD_WORKERS]
+                                          [--nprocs NPROCS]
+                                          [--batch-size BATCH_SIZE]
+                                          [--rate-window RATE_WINDOW]
+                                          [--min-free-gb MIN_FREE_GB]
+                                          [--disk-poll-seconds DISK_POLL_SECONDS]
+                                          [--no-wait-for-disk]
+                                          [--retry-failed] [--fail-fast]
+
+options:
+  -h, --help            show this help message and exit
+  --manifest MANIFEST
+  --output-root OUTPUT_ROOT
+  --state-root STATE_ROOT
+  --temp-root TEMP_ROOT
+  --year YEAR
+  --month MONTH
+  --start START
+  --end END
+  --max-frames MAX_FRAMES
+  --max-attempts MAX_ATTEMPTS
+  --download-workers DOWNLOAD_WORKERS
+  --nprocs NPROCS
+  --batch-size BATCH_SIZE
+  --rate-window RATE_WINDOW
+  --min-free-gb MIN_FREE_GB
+  --disk-poll-seconds DISK_POLL_SECONDS
+  --no-wait-for-disk
+  --retry-failed
+  --fail-fast
+
+
+COMMAND: pipeline.py goes-fill -- --help
+usage: fill_native_goes_parallax_nans.py [-h] --year YEAR --month MONTH
+                                         [--input-root INPUT_ROOT]
+                                         [--output-root OUTPUT_ROOT]
+                                         [--overwrite]
+                                         [--max-filled-fraction MAX_FILLED_FRACTION]
+                                         [--max-fill-distance-pixels MAX_FILL_DISTANCE_PIXELS]
+
+options:
+  -h, --help            show this help message and exit
+  --year YEAR
+  --month MONTH
+  --input-root INPUT_ROOT
+  --output-root OUTPUT_ROOT
+  --overwrite
+  --max-filled-fraction MAX_FILLED_FRACTION
+  --max-fill-distance-pixels MAX_FILL_DISTANCE_PIXELS
+
+
+COMMAND: pipeline.py ci35-catalogue -- --help
+usage: build_ci_labels_v3_contour20.py [-h] [--project PROJECT]
+                                       [--output-root OUTPUT_ROOT]
+                                       [--lead-index LEAD_INDEX]
+                                       [--workers WORKERS]
+                                       [--chunk-minutes CHUNK_MINUTES]
+                                       [--offsets OFFSETS [OFFSETS ...]]
+                                       [--limit-periods LIMIT_PERIODS]
+                                       [--selftest]
+
+Build tested contour20 V3 rules on retained native MRMS scans. Separate
+catalogue/soft targets; does not modify V1 or train any model.
+
+options:
+  -h, --help            show this help message and exit
+  --project PROJECT
+  --output-root OUTPUT_ROOT
+  --lead-index LEAD_INDEX
+  --workers WORKERS
+  --chunk-minutes CHUNK_MINUTES
+  --offsets OFFSETS [OFFSETS ...]
+  --limit-periods LIMIT_PERIODS
+  --selftest
+
+
+COMMAND: pipeline.py training-index -- --help
+Uses CI_WORKSPACE data/ci_isolated_mrms_binary_v1; see docs/pipeline.md. Run with no extra arguments.
+
+
+COMMAND: pipeline.py period-splits -- --help
+Uses CI_WORKSPACE data/ci_isolated_mrms_binary_v1; see docs/pipeline.md. Run with no extra arguments.
+
+
+COMMAND: pipeline.py radar-aux -- --help
+usage: build_ci_radar_aux_v1.py [-h] --output OUTPUT
+                                [--smoke-samples SMOKE_SAMPLES]
+
+Build radar-only auxiliary targets for existing train/validation periods.
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT
+  --smoke-samples SMOKE_SAMPLES
+
+
+COMMAND: pipeline.py valid-masks -- --help
+usage: build_ci_valid_masks_native_goes.py [-h] --manifest MANIFEST
+                                           --soft-target-builder SOFT_TARGET_BUILDER
+                                           --output-root OUTPUT_ROOT
+                                           [--min-valid-fraction MIN_VALID_FRACTION]
+
+options:
+  -h, --help            show this help message and exit
+  --manifest MANIFEST
+  --soft-target-builder SOFT_TARGET_BUILDER
+  --output-root OUTPUT_ROOT
+  --min-valid-fraction MIN_VALID_FRACTION
+
+
+COMMAND: pipeline.py dataset-two-windows -- --help
+usage: prepare_ci_v3_30min_dataset.py [-h] [--project PROJECT]
+                                      [--catalogue-root CATALOGUE_ROOT]
+                                      [--output-root OUTPUT_ROOT] [--selftest]
+
+options:
+  -h, --help            show this help message and exit
+  --project PROJECT
+  --catalogue-root CATALOGUE_ROOT
+  --output-root OUTPUT_ROOT
+  --selftest
+
+
+COMMAND: pipeline.py mrms-complete -- --help
+usage: complete_ci_v3_mrms_inputs.py [-h] [--dataset-root DATASET_ROOT]
+                                     [--output-root OUTPUT_ROOT] [--selftest]
+
+options:
+  -h, --help            show this help message and exit
+  --dataset-root DATASET_ROOT
+  --output-root OUTPUT_ROOT
+  --selftest
+
+
+COMMAND: pipeline.py binary20-build -- --help
+usage: build_ci_v4_binary20.py [-h] [--pilot-script PILOT_SCRIPT]
+                               [--output-dir OUTPUT_DIR]
+                               [--catalogue-root CATALOGUE_ROOT]
+                               [--dataset-root DATASET_ROOT]
+                               [--limit-periods LIMIT_PERIODS] [--selftest]
+
+Build reviewable V4 per-detection targets; never change V3 or train models.
+Geometry reproduces the 20-dBZ pilot: seeded 8-connected component, clipped to
+distance <= selected_offset_km from the native birth core and excluding the
+saved isolation band. Native MRMS and exact birth times are retained. This
+changes supervision geometry, not the event detection definition.
+
+options:
+  -h, --help            show this help message and exit
+  --pilot-script PILOT_SCRIPT
+  --output-dir OUTPUT_DIR
+  --catalogue-root CATALOGUE_ROOT
+  --dataset-root DATASET_ROOT
+  --limit-periods LIMIT_PERIODS
+  --selftest
+
+
+COMMAND: pipeline.py binary20-qc -- --help
+usage: qc_ci_v4_binary20.py [-h] [--selftest] [--mode {audit,review,all}]
+                            [--v4-root V4_ROOT] [--dataset-root DATASET_ROOT]
+                            [--output-dir OUTPUT_DIR] [--cases CASES]
+                            [--before BEFORE] [--after AFTER] [--seed SEED]
+
+Read-only V4 audit + TRAIN review GIFs. Flags do not classify radar noise.
+Audits every saved binary target. CH13 statistics use the saved >=35-dBZ core
+pixels, at floor(birth, 10 min) and 10 min later. Future observations are
+visual QC only. Source GOES before NaN filling is compared for selected review
+cases, with exact times/channels and explicit grid checks. No catalogue,
+targets, split, loss mask or training index is changed.
+
+options:
+  -h, --help            show this help message and exit
+  --selftest
+  --mode {audit,review,all}
+  --v4-root V4_ROOT
+  --dataset-root DATASET_ROOT
+  --output-dir OUTPUT_DIR
+  --cases CASES
+  --before BEFORE
+  --after AFTER
+  --seed SEED
+
+
+COMMAND: pipeline.py dataset-paired -- --help
+usage: prepare_ci_v4_paired_datasets.py [-h] [--selftest]
+                                        [--source-dataset SOURCE_DATASET]
+                                        [--mrms-input-root MRMS_INPUT_ROOT]
+                                        [--v4-root V4_ROOT]
+                                        [--qc-root QC_ROOT]
+                                        [--output-dir OUTPUT_DIR]
+                                        [--ignore-reviewed-cases IGNORE_REVIEWED_CASES [IGNORE_REVIEWED_CASES ...]]
+
+Rebuild paired soft/binary windows with common local ignore masks. Default:
+ignore the four TRAIN cases the user reviewed as mostly radar noise. Ignore is
+conservative: remove their positive references and mask the union of old soft
+support and new binary support in affected windows. They are not silently
+converted to negative targets. Other warm/geometry flags stay intact. Original
+inputs, splits, masks, labels and repair caches are never modified.
+
+options:
+  -h, --help            show this help message and exit
+  --selftest
+  --source-dataset SOURCE_DATASET
+  --mrms-input-root MRMS_INPUT_ROOT
+  --v4-root V4_ROOT
+  --qc-root QC_ROOT
+  --output-dir OUTPUT_DIR
+  --ignore-reviewed-cases IGNORE_REVIEWED_CASES [IGNORE_REVIEWED_CASES ...]
+
+
+COMMAND: pipeline.py catalogue-check -- --help
+usage: validate_strict.py [-h] --root ROOT
+
+options:
+  -h, --help   show this help message and exit
+  --root ROOT
+
+
+EXTERNAL WORKSPACE CONFIGURATION PASSED
+CONFIG /private/var/folders/db/6gmnjkfn7_z2q_nl69_7vwrm0000gn/T/CI external workspace ioah_7r5/configs/config_full_2022_strict.json
+CONFIG /private/var/folders/db/6gmnjkfn7_z2q_nl69_7vwrm0000gn/T/CI external workspace ioah_7r5/configs/config_full_template.json
+CONFIG /private/var/folders/db/6gmnjkfn7_z2q_nl69_7vwrm0000gn/T/CI external workspace ioah_7r5/configs/config_full_2024_strict.json
+CONFIG /private/var/folders/db/6gmnjkfn7_z2q_nl69_7vwrm0000gn/T/CI external workspace ioah_7r5/configs/config_full_2021_strict.json
+CONFIG /private/var/folders/db/6gmnjkfn7_z2q_nl69_7vwrm0000gn/T/CI external workspace ioah_7r5/configs/config_full_2023_strict.json
+CONFIG /private/var/folders/db/6gmnjkfn7_z2q_nl69_7vwrm0000gn/T/CI external workspace ioah_7r5/configs/config_full_2025_strict.json
+
+RESULT: all requested local checks passed
+NOT EXECUTED: full native data retrieval, catalogue rebuild, CUDA training, full TEST score reproduction.
