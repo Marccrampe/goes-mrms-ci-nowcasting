@@ -252,22 +252,14 @@ def launch(case):
     zoom = w.Dropdown(options=['Paper overview', 'Full domain', 'Source-config zoom'], description='Display extent', style=style)
     ids = w.Checkbox(value=False, description='Show forecast IDs')
     reset = w.Button(description='Restore original figure settings', icon='undo', layout=w.Layout(width='250px'))
-    output, detail = w.Output(), w.Output()
-    objects = w.Dropdown(description='Inspect forecast object', style=style)
+    output, feedback = w.Output(), w.Output()
     export = w.Button(description='Export current tables + settings', icon='download', layout=w.Layout(width='250px'))
     state = {}
-    def inspect(change=None):
-        with detail:
-            clear_output(wait=True)
-            if objects.value is None or 'r' not in state:
-                return
-            row = case.object_table(state['r']); display(row[row.object_id.eq(objects.value)])
-            fig = case.inspect(state['r'], objects.value); plt.show(); plt.close(fig)
     def update(change=None):
         with output:
             clear_output(wait=True)
             r = case.evaluate(float(q.value), int(persistence.value), float(radius.value), int(area.value)); state['r'] = r
-            display(HTML('<b>25 July 2025 · 19:00 UTC · 0–30 min · actual split: TRAIN</b><br>'
+            display(HTML('<b>25 July 2025 · 19:00 UTC · 0–30 min</b><br>'
                 'All counts use the full 212 × 230 domain before display zoom. Strict CI35 stays at 5 km; '
                 'growth diagnostics preserve strict FN and do not recover matching-competition FN.'))
             display(r['metrics'].round(6))
@@ -275,14 +267,6 @@ def launch(case):
             display(HTML(f"<b>{n['predicted_objects']} forecasts · {n['observed_objects']} CI35 reference objects · "
                          f"{n['accepted_growth']} growth promotions · {n['FN_covered']} spatially covered strict FN.</b>"))
             fig = case.figure(r, zoom.value, ids.value); plt.show(); plt.close(fig)
-        table = case.object_table(r)
-        options = [(f'{row.object_id}: {row.diagnostic} · {row.pixels} pixels', row.object_id) for row in table.itertuples()]
-        old = objects.value
-        objects.unobserve(inspect, names='value')
-        objects.options = options
-        if options:
-            objects.value = old if old in [v for _, v in options] else options[0][1]
-        objects.observe(inspect, names='value'); inspect()
     def restore(_):
         # Suspend listeners to avoid evaluating five intermediate states.
         for control in controls: control.unobserve(update, names='value')
@@ -299,15 +283,17 @@ def launch(case):
         (out/'settings.json').write_text(json.dumps(dict(**r['settings'], split=case.score['split'],
             window='(0,30]', strict_km=5, min_forecast_pixels=2, matching_domain='full',
             note='Exploratory Fig11 growth diagnostic; original strict FN retained; not S12 or FN recovery'), indent=2))
-        with detail: print('Saved:', out.resolve())
+        with feedback:
+            clear_output(wait=True)
+            print('Saved:', out.resolve())
     controls = [q, persistence, radius, area, zoom, ids]
     for control in controls: control.observe(update, names='value')
-    objects.observe(inspect, names='value'); reset.on_click(restore); export.on_click(save)
+    reset.on_click(restore); export.on_click(save)
     display(w.VBox([w.HTML('<h3>Explore the object-based verification</h3>'),
         w.HTML('The ≥25-dBZ growth rule also requires temporal novelty, ≥3 contiguous scans, '
                'growth in intensity or native area, and topology/coverage checks. The controls do not replace those rules.'),
         q, w.HBox([persistence, radius]), w.HBox([area, zoom]), w.HBox([ids, reset]), output,
-        w.HTML('<h3>Inspect an individual forecast</h3>'), objects, detail, export]))
+        export, feedback]))
     update()
     return state
 

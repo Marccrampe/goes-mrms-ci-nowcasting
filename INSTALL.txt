@@ -1,28 +1,8 @@
-Replace only notebooks/quickstart.ipynb in your GitHub repository, then commit.
-Keep the tools/, examples/fig11_case/ and requirements-case-demo.txt files from
-the previous package at the repository ROOT on the main branch.
+Replace these two files at the same paths on GitHub main:
+notebooks/quickstart.ipynb
+tools/object_demo.py
 
-The three manuscript images must be committed at:
-docs/figures/Fig04_V1_strict_one_to_one_VALopt_TEST.png
-docs/figures/Fig09_model_definition_CSI_P10.png
-docs/figures/Supplementary_B_real_competition.png
-
-This notebook uses direct raw.githubusercontent.com image links, not notebook
-attachments. Images load from GitHub before code execution.
-
-On Colab, setup always clones a FRESH copy of GitHub main into a temporary
-session directory. An old clone from a previous run is never reused.
-No files.upload(), manual ZIP upload or GPU is required.
-If data/code files are missing on GitHub, setup lists the missing paths.
-
-After committing, reopen the notebook through the README Colab button and run
-the new first code cell. An already open Colab tab may still contain old code:
-reopen the GitHub notebook, not just its old runtime.
-
-The case data are small ordinary repository files. If they were committed as
-Git LFS pointers rather than actual NPZ files, setup explicitly reports that.
-
-Local validation: all cells compile; bootstrap tested with a simulated fresh
-Git checkout; archived case checksums/classifications still reproduce.
-Live public GitHub/Colab access has not been verified from this environment.
-No scientific or verification code is changed by this patch.
+Reopen the notebook from GitHub in Colab, then rerun setup.
+The individual-forecast inspection block and the visible case split labels have been removed.
+Maps, controls, original provenance metadata and verification calculations remain unchanged.
+The automatic GitHub download and direct manuscript image links are retained.
