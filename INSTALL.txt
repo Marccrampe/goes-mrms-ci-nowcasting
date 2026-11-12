@@ -1,8 +1,0 @@
-Replace these two files at the same paths on GitHub main:
-notebooks/quickstart.ipynb
-tools/object_demo.py
-
-Reopen the notebook from GitHub in Colab, then rerun setup.
-The individual-forecast inspection block and the visible case split labels have been removed.
-Maps, controls, original provenance metadata and verification calculations remain unchanged.
-The automatic GitHub download and direct manuscript image links are retained.
