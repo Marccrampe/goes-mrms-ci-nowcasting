@@ -1,2 +1,0 @@
-event_date,period_id,issuance_time,split,strict_reference_dbz,strict_km,growth_dbz,persistence_minutes,growth_km,threshold,tp,fp,fn,observed_objects,predicted_objects,accepted_growth,remaining_FP,duplicate_FP_not_promoted,FN_covered,FN_uncovered,csi,pod,far
-20250725,PERIOD_77b4fa7b1c66677da43a3c0d,2025-07-25 19:00:00,train,35,5.0,25,5,15.0,0.05,7,10,9,16,17,8,2,0,2,7,0.2692307692307692,0.4375,0.5882352941176471
