@@ -1,28 +1,19 @@
-# Software and article licensing
+# Licensing and attribution
 
-No software licence has yet been selected and approved for this candidate.
-Publishing research code, or publishing an article in Scientific Reports, does
-not automatically place the code under a Creative Commons or software licence.
-Until a code licence is granted, this candidate should not advertise itself as
-licensed open-source software.
+The authors' original software is released under the [MIT License](../LICENSE).
+Marc Crampe confirmed this choice on 12 November 2026. Keep the copyright and
+permission notice with redistributed copies or substantial portions of the code.
+Existing third-party licence and attribution notices remain applicable. Author
+and institutional affiliations are acknowledgements, not claims of endorsement.
+Nothing in this grant overrides any public-domain status of US-government works
+or the rights of third-party contributors.
 
-MIT is the proposed permissive software licence for the original project code.
-Before adding the final `LICENSE`, the rights holder(s) and scope of the grant
-must be confirmed, including any employer-owned, US-government or third-party
-contributions. No institutional approval is inferred from an author affiliation.
-Existing third-party notices must be retained.
+This software licence does not automatically license the paper, manuscript
+figures, NOAA source observations, model weights, or derived datasets. The public
+checkpoint's use terms are described in `weights/release_assets.json`; where
+separate terms are not stated, do not infer a separate data/weight licence from
+the code licence. See [data attribution](../examples/DATA_ATTRIBUTION.md).
 
-Scientific Reports requires a code-availability statement but does not prescribe
-MIT as the repository licence. Article publishing licences are a separate
-agreement. Creative Commons advises against applying its usual licences to
-software code.
-
-Sources:
-
-- [Scientific Reports editorial policies](https://www.nature.com/srep/journal-policies/editorial-policies)
-- [Creative Commons FAQ on software](https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software)
-- [MIT licence text and conditions](https://choosealicense.com/licenses/mit/)
-
-Data and manuscript figures have their own rights and attribution. See
-`examples/DATA_ATTRIBUTION.md`; a software licence must not be silently applied
-to NOAA source products or third-party assets.
+The CI35 catalogue has been prepared for a separate Zenodo dataset deposit.
+Its dataset licence must be selected in that record. The draft is not represented
+as a published release and no DOI is invented here.

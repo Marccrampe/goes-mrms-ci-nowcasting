@@ -1,5 +1,7 @@
 cff-version: 1.2.0
 type: software
+license: MIT
+version: 0.1.1
 title: GOES–MRMS Convection Initiation Nowcasting
 message: >-
   If you use this code, cite this repository and the accompanying manuscript:
@@ -8,21 +10,29 @@ message: >-
 authors:
   - family-names: Crampe
     given-names: Marc
+    affiliation: "Department of Civil Engineering, The City College of New York, CUNY, New York, USA; CUNY CREST Institute, New York, USA; UNU Hub on R-SIRUS at CCNY, UNU-INWEH, New York, USA"
     email: mcrampe@ccny.cuny.edu
   - family-names: Potvin
     given-names: Corey K.
+    affiliation: "NOAA/OAR National Severe Storms Laboratory, Norman, USA; School of Meteorology, The University of Oklahoma, Norman, USA"
   - family-names: Carlin
     given-names: Jacob T.
+    affiliation: "NOAA/OAR National Severe Storms Laboratory, Norman, USA"
   - family-names: Gourley
     given-names: Jonathan J.
+    affiliation: "NOAA/OAR National Severe Storms Laboratory, Norman, USA; School of Meteorology, The University of Oklahoma, Norman, USA"
   - family-names: Stratman
     given-names: Derek
+    affiliation: "Cooperative Institute for Severe and High-Impact Weather Research and Operations, The University of Oklahoma, Norman, USA; NOAA/OAR National Severe Storms Laboratory, Norman, USA"
   - family-names: Kerr
     given-names: Christopher A.
-  - family-names: Mejia
-    given-names: Said
+    affiliation: "Cooperative Institute for Severe and High-Impact Weather Research and Operations, The University of Oklahoma, Norman, USA; NOAA/OAR National Severe Storms Laboratory, Norman, USA"
+  - family-names: Mejia Manrique
+    given-names: Said A.
+    affiliation: "Department of Civil Engineering, The City College of New York, CUNY, New York, USA; CUNY CREST Institute, New York, USA; UNU Hub on R-SIRUS at CCNY, UNU-INWEH, New York, USA"
   - family-names: Khanbilvardi
     given-names: Reza
+    affiliation: "Department of Civil Engineering, The City College of New York, CUNY, New York, USA; CUNY CREST Institute, New York, USA; UNU Hub on R-SIRUS at CCNY, UNU-INWEH, New York, USA"
 repository-code: https://github.com/Marccrampe/goes-mrms-ci-nowcasting
 url: https://github.com/Marccrampe/goes-mrms-ci-nowcasting
 abstract: >-
