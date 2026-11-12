@@ -1,0 +1,11 @@
+{
+  "filename": "goes_mrms_ci35_hard_r2_public.pt",
+  "sha256": "9bc69822fb18d9b5036bc4e90fa7487aa08aafdaeda364ebb176fc55b01d5b0b",
+  "bytes": 108013063,
+  "original_checkpoint_sha256": "9231c9bb9aa540717986c1ae729cdbbf56629ed74b072de10a200be4f9ae507e",
+  "identical_model_tensors": true,
+  "identical_miniature_predictions": true,
+  "max_prediction_abs_difference": 0.0,
+  "weights_only_loading_passed": true,
+  "optimizer_and_private_training_config_removed": true
+}

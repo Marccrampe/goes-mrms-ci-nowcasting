@@ -1,0 +1,11 @@
+{
+  "scanned_files_and_archive_members": 401,
+  "private_account_markers_found": 0,
+  "nested_tar_zip_npz_and_parquet_scanned": true,
+  "tar_owner_headers_anonymized": true,
+  "tests_passed_after_redaction": 17,
+  "model_tensors_unchanged": true,
+  "miniature_predictions_identical": true,
+  "public_authors_and_correspondence_retained": true,
+  "remote_git_history_modified": false
+}

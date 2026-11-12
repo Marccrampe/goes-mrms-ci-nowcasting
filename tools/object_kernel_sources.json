@@ -1,0 +1,79 @@
+[
+  {
+    "source": "pipeline_portability_work/sources/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_v4_relaxed_core.py",
+    "function": "components",
+    "start_line": 11,
+    "source_sha256": "fcb1e864d5f43c140d03885556631f1fce6f1fe7c3d4a6f15c12b03edc9882ae",
+    "source_in_package": "examples/fig11_case/code/science/ci_v4_relaxed_core.py"
+  },
+  {
+    "source": "pipeline_portability_work/sources/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_v4_relaxed_core.py",
+    "function": "prediction_segments",
+    "start_line": 130,
+    "source_sha256": "fcb1e864d5f43c140d03885556631f1fce6f1fe7c3d4a6f15c12b03edc9882ae",
+    "source_in_package": "examples/fig11_case/code/science/ci_v4_relaxed_core.py"
+  },
+  {
+    "source": "pipeline_portability_work/sources/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_v4_relaxed_core.py",
+    "function": "matching",
+    "start_line": 147,
+    "source_sha256": "fcb1e864d5f43c140d03885556631f1fce6f1fe7c3d4a6f15c12b03edc9882ae",
+    "source_in_package": "examples/fig11_case/code/science/ci_v4_relaxed_core.py"
+  },
+  {
+    "source": "pipeline_portability_work/sources/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_common_exploratory_core.py",
+    "function": "truth_fields",
+    "start_line": 21,
+    "source_sha256": "c4654b1468c41647891b6ddfb4219c05cfe7a8292f94985f93e87f4eeaca1530",
+    "source_in_package": "examples/fig11_case/code/science/ci_common_exploratory_core.py"
+  },
+  {
+    "source": "pipeline_portability_work/sources/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_common_exploratory_core.py",
+    "function": "matrix",
+    "start_line": 26,
+    "source_sha256": "c4654b1468c41647891b6ddfb4219c05cfe7a8292f94985f93e87f4eeaca1530",
+    "source_in_package": "examples/fig11_case/code/science/ci_common_exploratory_core.py"
+  },
+  {
+    "source": "pipeline_portability_work/sources/scripts/isolated_ci_binary_v1/goes_ir_v1/ci_I4_mesh_core_v1.py",
+    "function": "coverage_checks",
+    "start_line": 10,
+    "source_sha256": "7e183a711c60763acbfd65c23cdb44a36b921876a5c6a97b3af3308632825515",
+    "source_in_package": "tools/kernel_sources/ci_I4_mesh_core_v1.py"
+  },
+  {
+    "source": "Figure11_case_visual_v1/common.py",
+    "function": "require",
+    "start_line": 33,
+    "source_sha256": "6e5039421aaaf9b9e1326a07d4b7f43063598e2a3ad9c4f09cdb4183d72fb9b7",
+    "source_in_package": "examples/fig11_case/code/Figure11_case_visual_v1/common.py"
+  },
+  {
+    "source": "Figure11_case_visual_v1/common.py",
+    "function": "classify",
+    "start_line": 50,
+    "source_sha256": "6e5039421aaaf9b9e1326a07d4b7f43063598e2a3ad9c4f09cdb4183d72fb9b7",
+    "source_in_package": "examples/fig11_case/code/Figure11_case_visual_v1/common.py"
+  },
+  {
+    "source": "ci_tiny_echo_growth_v1.py",
+    "function": "growth_flags",
+    "start_line": 124,
+    "source_sha256": "52c359e3c9ec54a29bd5bd7fb42ee342090669da4ae8342a58073f56da6d4895",
+    "source_in_package": "examples/fig11_case/code/science/ci_tiny_echo_growth_v1.py"
+  },
+  {
+    "source": "persistence_numeric.py",
+    "function": "persistence_flags",
+    "start_line": 8,
+    "source_sha256": "e09261a2e01b2ba192a2e6474b70b72a7cd8f097589c1dcd18542455998fa235",
+    "source_in_package": "examples/fig11_case/code/science/persistence_numeric.py"
+  },
+  {
+    "source": "persistence_numeric.py",
+    "function": "candidates",
+    "start_line": 26,
+    "source_sha256": "e09261a2e01b2ba192a2e6474b70b72a7cd8f097589c1dcd18542455998fa235",
+    "source_in_package": "examples/fig11_case/code/science/persistence_numeric.py"
+  }
+]
