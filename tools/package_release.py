@@ -7,11 +7,12 @@ from pathlib import Path
 import tarfile
 
 ROOT=Path(__file__).resolve().parents[1]
-EXCLUDE={'__pycache__','.git','.venv','outputs','data','runs','temporary','.ipynb_checkpoints'}
+EXCLUDE={'__pycache__','.git','.venv','outputs','data','runs','temporary','.ipynb_checkpoints','build','dist'}
 
 def files():
     return sorted(p for p in ROOT.rglob('*') if p.is_file() and not p.is_symlink()
         and not set(p.relative_to(ROOT).parts)&EXCLUDE
+        and not any(part.endswith('.egg-info') for part in p.relative_to(ROOT).parts)
         and p.suffix not in {'.pyc','.pyo'} and p.name!='.DS_Store')
 
 def main():
@@ -23,7 +24,7 @@ def main():
     for f in files():
         if f.name=='release_checksums.json':continue
         with f.open('rb') as handle:hashes[str(f.relative_to(ROOT))]=hashlib.file_digest(handle,'sha256').hexdigest()
-    (ROOT/'release_checksums.json').write_text(json.dumps(hashes,indent=2)+'\n')
+    (ROOT/'provenance/release_checksums.json').write_text(json.dumps(hashes,indent=2)+'\n')
     with tarfile.open(output,'w:gz',compresslevel=1) as tf:
         for f in files():tf.add(f,arcname=str(Path(ROOT.name)/f.relative_to(ROOT)),recursive=False)
     print('ARCHIVE',output)

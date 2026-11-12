@@ -2,10 +2,10 @@
   "final_model": {
     "filename": "goes_mrms_ci35_hard_r2.pt",
     "sha256": "9231c9bb9aa540717986c1ae729cdbbf56629ed74b072de10a200be4f9ae507e",
-    "url": null,
+    "url": "https://github.com/Marccrampe/goes-mrms-ci-nowcasting/releases/latest/download/goes_mrms_ci35_hard_r2.pt",
     "tracked_by_git": false,
-    "present_in_candidate": true,
-    "git_storage": "Git LFS required"
+    "present_in_candidate": false,
+    "git_storage": "GitHub Release asset; not committed to Git"
   },
   "miniature_test_case": {
     "filename": "examples/mini_case.npz",

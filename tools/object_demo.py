@@ -262,6 +262,9 @@ def launch(case):
             display(HTML('<b>25 July 2025 · 19:00 UTC · 0–30 min</b><br>'
                 'All counts use the full 212 × 230 domain before display zoom. Strict CI35 stays at 5 km; '
                 'growth diagnostics preserve strict FN and do not recover matching-competition FN.'))
+            display(HTML('<b>Uncalibrated model output:</b> the displayed raw sigmoid values are model scores, '
+                'not calibrated event frequencies. Radar persistence controls describe the verification diagnostic, '
+                'not a radar-persistence forecast baseline.'))
             display(r['metrics'].round(6))
             n = r['counts']
             display(HTML(f"<b>{n['predicted_objects']} forecasts · {n['observed_objects']} CI35 reference objects · "

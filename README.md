@@ -1,53 +1,141 @@
-<div align="center">
-
 # GOES–MRMS Convection Initiation Nowcasting
-
-**Satellite and radar observations → spatial CI probability maps → two forecast windows**
 
 *Spatially Explicit Deep Learning Nowcasting of Convection Initiation Using GOES and MRMS*
 
 Marc Crampe<sup>1,2,3,*</sup> · Corey K. Potvin<sup>5,6</sup> · Jacob T. Carlin<sup>5</sup> · Jonathan J. Gourley<sup>5,6</sup> · Derek Stratman<sup>4,5</sup> · Christopher A. Kerr<sup>4,5</sup> · Said Mejia<sup>1,2,3</sup> · Reza Khanbilvardi<sup>1,2,3</sup>
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Marccrampe/goes-mrms-ci-nowcasting/blob/main/notebooks/quickstart.ipynb)
-[**View the demo notebook**](notebooks/quickstart.ipynb) · [**Download model weights**](https://github.com/Marccrampe/goes-mrms-ci-nowcasting/releases/latest) · [**Reproduce the pipeline**](docs/pipeline.md)
+[Notebook](notebooks/quickstart.ipynb) · [Model weights](https://github.com/Marccrampe/goes-mrms-ci-nowcasting/releases/latest) · [Data pipeline](docs/pipeline.md)
 
-</div>
+A residual U-Net combines GOES-East infrared observations and MRMS radar features
+to predict convection initiation over the northeastern United States in successive
+**0–30- and 30–60-min windows**. The manuscript uses a catalogue of **38,313 CI events**
+from selected convectively active periods during 2021–2025.
 
-## Explore the paper and try the model
+## Try the demo
 
-Open the **Colab notebook** above for three commented manuscript figures and an
-interactive full-domain case study. Change the probability threshold, radar
-persistence, growth-association radius and minimum native birth area; inspect
-forecast objects individually and play the radar sequence.
+Open the Colab notebook for commented manuscript figures, an interactive case
+from 25 July 2025 at 19:00 UTC, and radar playback. Explore the probability
+threshold, observed-radar persistence, growth-association distance and native
+birth-core area. Code and case data load directly from GitHub; no GPU is needed.
 
-The case is initialized **25 July 2025 at 19:00 UTC** and belongs to the **TRAIN**
-split. It illustrates verification; it is not an independent skill estimate.
-Its archived output covers **0–30 min**. The notebook checks that the original
-strict counts (7 TP / 10 FP / 9 FN) and growth associations reproduce before
-opening the controls. All matching occurs on the full domain before display zoom.
+![Case-study verification](docs/figures/interactive_case_preview.png)
 
-![Interactive case-study overview](docs/figures/interactive_case_preview.png)
+The case illustrates object verification. Its single-case scores do not replace
+the held-out aggregate results below. All matching uses the full domain before
+zoom. The optional notebook section runs the released network on a separate
+miniature TEST sample and produces both forecast heads.
 
-The optional final section runs CPU inference on the separate real miniature
-**TEST** sample, producing both forecast windows. Only that optional section
-downloads the ~309-MiB checkpoint and verifies its SHA-256. No GPU is needed
-for either demonstration. See [case-demo setup and limits](docs/interactive_case.md).
+**Probability interpretation:** the demo displays raw, uncalibrated sigmoid
+scores. Their magnitudes are not calibrated event frequencies. The paper's
+isotonic-calibration analysis is separate; no calibration map is silently applied.
 
-## About the paper
+## Held-out TEST results
 
-Correspondence: [Marc Crampe](mailto:mcrampe@ccny.cuny.edu).
+Strict CI35, one-to-one matching within **5 km**, minimum **two forecast-grid
+pixels** per forecast object, and **4,712 common TEST issuances**. Operating
+thresholds are frozen before TEST; probability thresholds were selected on
+VALIDATION. CTC fixed uses its literature reference threshold.
 
-This repository accompanies our research on forecasting where new convection
-will develop over the northeastern United States. The manuscript describes a
-catalogue of **38,313 radar-identified CI events from selected periods in
-2021–2025**, and a residual U-Net combining GOES-East infrared observations
-with MRMS radar information. The model produces spatial forecasts for successive
-**0–30- and 30–60-min windows**.
+| Model | Window (min) | Threshold | CSI | POD | FAR |
+|---|---|---:|---:|---:|---:|
+| CTC fixed | 0–30 | 4 K/15 min | 0.020 | 0.201 | 0.979 |
+| CTC VAL-selected | 0–30 | 0.5 K/15 min | 0.032 | 0.421 | 0.966 |
+| GOES-only ResUNet | 0–30 | 0.040 | 0.093 | 0.215 | 0.859 |
+| GOES+MRMS final ResUNet | 0–30 | 0.075 | 0.163 | 0.400 | 0.784 |
+| GOES+MRMS final ResUNet | 30–60 | 0.015 | 0.111 | 0.308 | 0.853 |
 
-The release focuses on the **final GOES+MRMS model and its data pipeline**.
-The paper's full comparison experiments and figure-generation history are not
-required to use it. A paper/preprint link and publication information can be
-added here when available; no publication status is assumed.
+Exact scores, TP/FP/FN and archived sources are in
+[the source-data table](docs/results/main_TEST_results.csv) and
+[verification notes](docs/results/README.md). These are archived results,
+not scores computed on the demo crop. A trained checkpoint alone is insufficient
+to reproduce the complete TEST evaluation; the frozen evaluation cohort and
+canonical observations are also required.
+
+The CTC comparison is a satellite cloud-top-cooling baseline. It is **not** a
+radar-persistence or radar-extrapolation baseline. The notebook's persistence
+control changes a radar-growth verification criterion; it is not a forecast
+baseline. No unsupported BSS, extrapolation or external-model scores are reported.
+
+## Model and study design
+
+| Component | Final model |
+|---|---|
+| GOES-East ABI | C08–C14 at −30, −20, −10 and 0 min: 28 channels |
+| MRMS-derived inputs | 18 channels; combined input is 46 × H × W |
+| Network | Residual U-Net, width 48, two output heads |
+| Training target | Hard support of the soft target, dilated by two model-grid pixels |
+| Verification observations | Canonical, uninflated CI35 birth cores |
+| Checkpoint | Epoch-20 `last.pt` |
+
+Splits are assigned **by period**, with target proportions 80/10/10 across
+training, validation and TEST. All issuances belonging to a period receive its
+split. The grouping/search balances event and issuance counts globally and by
+year; it is not a future-year holdout. See [split implementation and scope](docs/study_design.md).
+
+The hard +2 representation provides spatial tolerance during training while
+verification retains the original CI35 geometry. The six-target ablation in
+[Figure 4](docs/figures/Fig04_V1_strict_one_to_one_VALopt_TEST.png) compares the
+representations under the same strict evaluation framework. Training dilation
+and verification distance are separate settings.
+
+## Install and run locally
+
+Use Python 3.11 or later from the repository root:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[demo,model]"
+python notebooks/run_quickstart.py
+python -m unittest discover -s tests -v
+```
+
+Download `goes_mrms_ci35_hard_r2.pt` from the linked GitHub Release and place it
+in `weights/` before running the local quickstart. The notebook can download it
+automatically. The ~309-MiB file is a Release asset, not a Git source file.
+Required SHA-256:
+
+```text
+9231c9bb9aa540717986c1ae729cdbbf56629ed74b072de10a200be4f9ae507e
+```
+
+For catalogue reconstruction, satellite/radar processing and training:
+
+```bash
+python -m pip install -e ".[pipeline]"
+python pipeline.py list
+python pipeline.py configure
+```
+
+Follow [the ordered pipeline](docs/pipeline.md). Use `CI_WORKSPACE` for data and
+outputs; configure final training inputs in `configs/final_model.json`.
+Training requires the prepared dataset and a suitable CUDA GPU. The binary20/QC
+stages preserve the original paired-cohort preparation and review decisions;
+binary20 is not the final model's training target.
+
+## Reproducibility and limits
+
+Local validation covers numerical tests, original-case regression, notebook
+controls, stage entry points and real checkpoint inference on the miniature
+sample. It does not establish a fresh end-to-end catalogue rebuild or a completed
+20-epoch CUDA reproduction. Details are in [validation scope](docs/validation.md).
+
+The full event catalogue and exact split/QC artefacts are not yet distributed as
+a public, immutable dataset release. [Data availability](docs/data_availability.md)
+lists the outstanding assets. No dataset DOI or complete regeneration claim is
+made on the strength of a miniature example.
+
+## Data, licensing and citation
+
+GOES ABI and MRMS source attribution, transformations and source-policy links:
+[DATA_ATTRIBUTION.md](examples/DATA_ATTRIBUTION.md).
+Software licensing is documented separately in [licensing status](docs/licensing.md).
+The article's publication licence does not automatically license this code.
+
+Use [CITATION.cff](CITATION.cff) for authorship and title. A versioned code/data
+archive and DOI can be added once actually published. Correspondence:
+[Marc Crampe](mailto:mcrampe@ccny.cuny.edu).
 
 <details>
 <summary><strong>Author affiliations</strong></summary>
@@ -61,120 +149,3 @@ added here when available; no publication status is assumed.
 
 </details>
 
-## What the final model does
-
-| Input / output | Description |
-| --- | --- |
-| GOES-East ABI | C08–C14 at −30, −20, −10 and 0 min: 28 channels |
-| MRMS-derived inputs | Reflectivity, validity, threshold and temporal-difference features |
-| Combined model input | 46 channels on the GOES model grid |
-| Network | Residual U-Net |
-| Training target | Hard support of the original soft target, dilated by two model-grid pixels |
-| Outputs | CI probability maps for (0,30] and (30,60] min |
-
-The supplied demonstration displays **raw sigmoid probabilities**. The separate
-isotonic-calibration analysis discussed in the paper is not applied by this demo.
-
-## Run locally
-
-Python 3.11 or later. From a source checkout:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements-demo.txt
-```
-
-Download `goes_mrms_ci35_hard_r2.pt` from the
-[latest published Release](https://github.com/Marccrampe/goes-mrms-ci-nowcasting/releases/latest)
-and place it in `weights/`. Alternatively, the notebook can download and verify
-the asset automatically.
-
-```bash
-python notebooks/run_quickstart.py
-python -m unittest discover -s tests -v
-```
-
-The **309-MiB checkpoint is distributed as a Release asset**, separately from
-the source tree. Its required SHA-256 is:
-
-```text
-9231c9bb9aa540717986c1ae729cdbbf56629ed74b072de10a200be4f9ae507e
-```
-
-## Rebuild the catalogue and train
-
-The workflow covers native MRMS acquisition and period construction, GOES
-retrieval, parallax correction and fill, strict CI35 catalogue construction,
-dataset/QC preparation, and final-model training.
-
-```bash
-python -m pip install -r requirements.txt
-python pipeline.py list
-python pipeline.py configure
-```
-
-Follow **[the ordered pipeline guide](docs/pipeline.md)** and
-[data prerequisites](docs/data_prerequisites.md). Data/output storage is selected
-with `CI_WORKSPACE`; training input paths are set in `configs/final_model.json`.
-
-```bash
-python models/train.py --config configs/final_model.json --check-only
-python models/train.py --config configs/final_model.json --smoke
-# Select a new empty run_dir after the smoke test.
-python models/train.py --config configs/final_model.json
-```
-
-Training requires a **CUDA GPU and the complete prepared dataset**. The main
-checkpoint is epoch-20 `last.pt`. Historical binary20/QC stages remain prerequisites
-of the paired-cohort preparation; binary20 is not the final hard+2 training target.
-
-<details>
-<summary><strong>Repository map</strong></summary>
-
-| Directory | Contents |
-| --- | --- |
-| `catalogue/` | Period construction, strict events and quality checks |
-| `preprocessing/` | GOES/MRMS processing and dataset loader |
-| `models/` | Architecture, training and inference |
-| `workflow/` | Shared scientific implementation |
-| `configs/` | Final-model settings and catalogue templates |
-| `notebooks/` | Interactive demonstration |
-| `examples/` | Real miniature inputs and provenance |
-| `weights/` | Location for the separately downloaded checkpoint |
-| `verification/` | Optional numerical scoring utilities |
-| `provenance/` | Original sources, training configuration and QC evidence |
-| `docs/`, `tests/` | Instructions and validation |
-
-</details>
-
-## Reproducibility status
-
-The core release passed local numerical tests, real checkpoint inference,
-stage startup checks, and the recovered binary20/QC selftests. The miniature
-example supports CPU execution independently of the cluster.
-
-Full raw-data downloads, complete catalogue regeneration, human review and the
-20-epoch CUDA run have **not** been repeated in the local release validation.
-See [validation scope](docs/validation.md). Human QC choices and dataset identity
-must be preserved explicitly when reproducing the original study.
-
-<details>
-<summary><strong>Manuscript citation information</strong></summary>
-
-```bibtex
-@misc{crampe_goes_mrms_ci_nowcasting,
-  title = {Spatially Explicit Deep Learning Nowcasting of Convection Initiation Using GOES and MRMS},
-  author = {Crampe, Marc and Potvin, Corey K. and Carlin, Jacob T. and Gourley, Jonathan J. and Stratman, Derek and Kerr, Christopher A. and Mejia, Said and Khanbilvardi, Reza},
-  url = {https://github.com/Marccrampe/goes-mrms-ci-nowcasting},
-  note = {Companion research code; publication metadata to be added when available}
-}
-```
-
-</details>
-
-## Data and licence
-
-Review `examples/DATA_LICENSE_REVIEW_REQUIRED.md` for the miniature sample's
-redistribution/attribution review. The authors' chosen code licence should be
-provided in `LICENSE` before an open-source licence is advertised.

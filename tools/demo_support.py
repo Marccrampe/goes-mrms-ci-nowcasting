@@ -65,10 +65,11 @@ def show_demo(root,window=0,history=3,display_max=.5):
     for ax,title,field,cmap,lo,hi,unit in zip(axs,
         [f'GOES-East ABI C13 · t{offset:+d} min',f'MRMS · t{offset:+d} min',f'Raw probability · {lead}'],
         [goes,np.where(valid,radar,np.nan),probability],['gray_r','turbo','magma'],
-        [210,0,0],[300,60,display_max],['Brightness temperature (K)','Reflectivity (dBZ)','Probability']):
+        [210,0,0],[300,60,display_max],['Brightness temperature (K)','Reflectivity (dBZ)','Raw model score (uncalibrated)']):
         image=ax.imshow(field,cmap=cmap,vmin=lo,vmax=hi,interpolation='nearest')
         ax.set_title(title,fontsize=10);ax.set_xticks([]);ax.set_yticks([])
         fig.colorbar(image,ax=ax,orientation='horizontal',shrink=.9,pad=.04,label=unit)
     plt.show()
+    print('UNCALIBRATED: raw sigmoid output; do not interpret its magnitude as an observed event frequency.')
     print(f'Forecast probability range: {probability.min():.6f}–{probability.max():.6f}')
     print('History selection and colour limits change the display only; the forecast remains fixed.')
