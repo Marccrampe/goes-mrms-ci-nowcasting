@@ -1,0 +1,19 @@
+{
+  "version": "0.1.1",
+  "date": "2026-11-12",
+  "unit_tests_passed": 17,
+  "real_cpu_checkpoint_inference_passed": true,
+  "public_github_source_commit_inspected": "0edec8f0a3aa053ad6e4d10c68c28613b95c7f47",
+  "public_release_asset_name": "goes_mrms_ci35_hard_r2_public.pt",
+  "public_release_asset_size_bytes": 108013063,
+  "notebook_public_download_test_passed": true,
+  "colab_frontend_tested": false,
+  "colab_widget_manager_hook_simulated_in_local_test": true,
+  "mit_code_licence_confirmed_by_user": true,
+  "author_name_corrected": "Said A. Mejia Manrique",
+  "zenodo_record_published": false,
+  "remote_files_modified": false,
+  "editable_install_passed": true,
+  "github_api_rate_limit_fallback_test_passed": true,
+  "public_privacy_scan_findings": 0
+}

@@ -2,9 +2,11 @@
 
 *Spatially Explicit Deep Learning Nowcasting of Convection Initiation Using GOES and MRMS*
 
-Marc Crampe<sup>1,2,3,*</sup> · Corey K. Potvin<sup>5,6</sup> · Jacob T. Carlin<sup>5</sup> · Jonathan J. Gourley<sup>5,6</sup> · Derek Stratman<sup>4,5</sup> · Christopher A. Kerr<sup>4,5</sup> · Said Mejia<sup>1,2,3</sup> · Reza Khanbilvardi<sup>1,2,3</sup>
+Marc Crampe<sup>1,2,3,*</sup> · Corey K. Potvin<sup>5,6</sup> · Jacob T. Carlin<sup>5</sup> · Jonathan J. Gourley<sup>5,6</sup> · Derek Stratman<sup>4,5</sup> · Christopher A. Kerr<sup>4,5</sup> · Said A. Mejia Manrique<sup>1,2,3</sup> · Reza Khanbilvardi<sup>1,2,3</sup>
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Marccrampe/goes-mrms-ci-nowcasting/blob/main/notebooks/quickstart.ipynb)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 [Notebook](notebooks/quickstart.ipynb) · [Model weights](https://github.com/Marccrampe/goes-mrms-ci-nowcasting/releases/latest) · [Data pipeline](docs/pipeline.md)
 
 A residual U-Net combines GOES-East infrared observations and MRMS radar features
@@ -121,8 +123,8 @@ controls, stage entry points and real checkpoint inference on the miniature
 sample. It does not establish a fresh end-to-end catalogue rebuild or a completed
 20-epoch CUDA reproduction. Details are in [validation scope](docs/validation.md).
 
-The full event catalogue and exact split/QC artefacts are not yet distributed as
-a public, immutable dataset release. [Data availability](docs/data_availability.md)
+The 38,313-event catalogue, original period splits and QC records have been
+prepared for a separate Zenodo deposit; that deposit is currently a draft. [Data availability](docs/data_availability.md)
 lists the outstanding assets. No dataset DOI or complete regeneration claim is
 made on the strength of a miniature example.
 
@@ -130,8 +132,8 @@ made on the strength of a miniature example.
 
 GOES ABI and MRMS source attribution, transformations and source-policy links:
 [DATA_ATTRIBUTION.md](examples/DATA_ATTRIBUTION.md).
-Software licensing is documented separately in [licensing status](docs/licensing.md).
-The article's publication licence does not automatically license this code.
+Original software: **[MIT License](LICENSE)**. Dataset, figure and source-data
+terms are separate; see [licensing and attribution](docs/licensing.md).
 
 Use [CITATION.cff](CITATION.cff) for authorship and title. A versioned code/data
 archive and DOI can be added once actually published. Correspondence:
