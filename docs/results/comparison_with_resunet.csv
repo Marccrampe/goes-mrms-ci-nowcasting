@@ -1,0 +1,5 @@
+Method,threshold_units,status,threshold,units,n_issuances,n_forecast_objects,mean_forecast_area_pixels,median_forecast_area_pixels,mean_forecast_area_nominal_km2,fraction_issuances_with_forecast,high_BT_gradient_forecast_pixel_fraction,TP,FP,FN,CSI,POD,FAR
+UWCI-inspired CTC — literature,K/15min,evaluated same frozen TEST,4.0,K/15min,4712.0,95962.0,259.3590796356891,83.0,1041.5547570875392,0.9872665534804754,0.2871701262938847,2034.0,93928.0,8082.0,0.019549421398639036,0.20106761565836298,0.9788041099601926
+UWCI-inspired CTC — calibrated,K/15min,evaluated same frozen TEST,0.5,K/15min,4712.0,126892.0,652.7523248116509,65.0,2621.374543981729,1.0,0.1325858773603193,4261.0,122631.0,5855.0,0.032098653830218385,0.4212139185448794,0.9664202629007345
+GOES+MRMS final ResUNet,probability,verified existing TEST cache,0.075,,4712.0,,,,,,,4046.0,14700.0,6070.0,0.16303997421018698,0.3999604586793199,0.784167289021658
+GOES-only ResUNet,probability,"same frozen TEST, threshold selected on VAL",0.04,,4712.0,,,,,,,2178.0,13277.0,7938.0,0.09310477493267216,0.21530249110320285,0.8590747330960854
