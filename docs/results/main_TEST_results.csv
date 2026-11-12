@@ -1,0 +1,6 @@
+model,window,threshold,threshold_units,n_issuances,TP,FP,FN,CSI,POD,FAR,source,matching
+UWCI-inspired CTC — literature,0–30,4.0,K/15min,4712,2034,93928,8082,0.019549421398639036,0.20106761565836298,0.9788041099601926,comparison_with_resunet.csv,strict CI35 one-to-one 5 km
+UWCI-inspired CTC — VAL-selected,0–30,0.5,K/15min,4712,4261,122631,5855,0.032098653830218385,0.4212139185448794,0.9664202629007345,comparison_with_resunet.csv,strict CI35 one-to-one 5 km
+GOES+MRMS final ResUNet,0–30,0.075,probability,4712,4046,14700,6070,0.16303997421018698,0.3999604586793199,0.784167289021658,comparison_with_resunet.csv,strict CI35 one-to-one 5 km
+GOES-only ResUNet,0–30,0.04,probability,4712,2178,13277,7938,0.09310477493267216,0.21530249110320285,0.8590747330960854,comparison_with_resunet.csv,strict CI35 one-to-one 5 km
+GOES+MRMS final ResUNet,30–60,0.015,probability,4712,3116,18030,7003,0.1106966499698035,0.3079355667556082,0.8526435259623569,joint_specialist_scores.csv,strict CI35 one-to-one 5 km

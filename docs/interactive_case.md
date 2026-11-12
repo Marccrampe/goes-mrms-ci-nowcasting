@@ -2,13 +2,14 @@
 
 Open `notebooks/quickstart.ipynb` in Colab or Jupyter. The notebook begins with
 three author-supplied manuscript figures embedded in Markdown, followed by the
-case explorer. It works without a GPU or model checkpoint. See `INSTALL.txt` for
-uploading the update before the new files are available on GitHub.
+case explorer. It works without a GPU or model checkpoint. Commit the code,
+notebook and case assets at their documented paths on GitHub main before using
+the README Colab button; setup downloads a fresh copy automatically.
 
 ## What is reproduced
 
 The exported case is `PERIOD_77b4fa7b1c66677da43a3c0d`, initialized 25 July 2025
-at 19:00 UTC. Its actual split is **train**. Only its 0–30-min probability map
+at 19:00 UTC. Only its 0–30-min probability map
 is available. All counts use the full 212 × 230 verification grid before zoom.
 
 Original settings: raw threshold 0.05, forecast minimum two pixels, strict CI35
@@ -29,7 +30,7 @@ against the saved decisions; it does not silently reinterpret the figure.
 - Growth-diagnostic radius: 5, 10, 15, 20 or 30 km; strict distance stays 5 km.
 - Minimum native birth area: 1, 2, 3 or 5 pixels.
 - Display extent and forecast-object identifiers.
-- Object-specific probability view and radar evolution.
+- Forecast-object IDs on the maps.
 - Radar playback through the actual forecast window.
 - Export of exploratory metrics, forecast-object table and explicit settings.
 

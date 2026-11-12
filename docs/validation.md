@@ -12,6 +12,6 @@ review or epoch-20 CUDA training. The portable training driver's full data/GPU
 smoke run remains to be executed on the cluster.
 
 IO migration produces new source hashes. Original bytes and fingerprints are
-preserved in `provenance/` and `source_manifest.csv`; historical hash guards must
+preserved in `provenance/` and `provenance/source_manifest.csv`; historical hash guards must
 not be silently bypassed. Dependency ranges and a local snapshot are supplied,
 not a cross-platform guarantee of bitwise identical scientific results.

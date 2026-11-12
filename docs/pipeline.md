@@ -60,7 +60,7 @@ splits, radar auxiliary inputs and validity masks, then the two-window V3 datase
 and repaired MRMS histories. `training-index` and `period-splits` are original
 no-argument programs using the workspace defaults; split search can be expensive.
 
-## 4. Historical dataset QC and common cohort
+## 4. Dataset QC and common cohort
 
 ```bash
 python pipeline.py binary20-build -- --selftest
