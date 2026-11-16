@@ -7,7 +7,7 @@ Marc Crampe<sup>1,2,3,*</sup> · Corey K. Potvin<sup>5,6</sup> · Jacob T. Carli
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Marccrampe/goes-mrms-ci-nowcasting/blob/main/notebooks/quickstart.ipynb)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-[Notebook](notebooks/quickstart.ipynb) · [Model weights](https://github.com/Marccrampe/goes-mrms-ci-nowcasting/releases/latest) · [Data pipeline](docs/pipeline.md)
+[Notebook](notebooks/quickstart.ipynb) · [Model weights](https://github.com/Marccrampe/goes-mrms-ci-nowcasting/releases/latest) · [Catalogue](https://doi.org/10.5281/zenodo.24179651) · [Data pipeline](docs/pipeline.md)
 
 A residual U-Net combines GOES-East infrared observations and MRMS radar features
 to predict convection initiation over the northeastern United States in successive
@@ -123,10 +123,11 @@ controls, stage entry points and real checkpoint inference on the miniature
 sample. It does not establish a fresh end-to-end catalogue rebuild or a completed
 20-epoch CUDA reproduction. Details are in [validation scope](docs/validation.md).
 
-The 38,313-event catalogue, original period splits and QC records have been
-prepared for a separate Zenodo deposit; that deposit is currently a draft. [Data availability](docs/data_availability.md)
-lists the outstanding assets. No dataset DOI or complete regeneration claim is
-made on the strength of a miniature example.
+The catalogue of 38,313 canonical CI35 events, original period splits,
+catalogue scan windows and supporting QC documentation are publicly
+available on **[Zenodo, version 1.0.0](https://doi.org/10.5281/zenodo.24179651)**,
+under **CC BY 4.0**. This catalogue release does not include the complete
+GOES/MRMS imagery or full model-evaluation caches.
 
 ## Data, licensing and citation
 
@@ -135,9 +136,16 @@ GOES ABI and MRMS source attribution, transformations and source-policy links:
 Original software: **[MIT License](LICENSE)**. Dataset, figure and source-data
 terms are separate; see [licensing and attribution](docs/licensing.md).
 
-Use [CITATION.cff](CITATION.cff) for authorship and title. A versioned code/data
-archive and DOI can be added once actually published. Correspondence:
-[Marc Crampe](mailto:mcrampe@ccny.cuny.edu).
+If you use the catalogue, please cite:
+
+> Crampe, M. et al. (2026). Radar-derived convection initiation catalogue
+> over the northeastern United States, 2021–2025 (Version 1.0.0).
+> Zenodo. https://doi.org/10.5281/zenodo.24179651
+
+For the software, see [CITATION.cff](CITATION.cff).
+The DOI above identifies the catalogue, not the software.
+
+Correspondence: [Marc Crampe](mailto:mcrampe@ccny.cuny.edu).
 
 <details>
 <summary><strong>Author affiliations</strong></summary>
