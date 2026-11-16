@@ -4,9 +4,9 @@ license: MIT
 version: 0.1.1
 title: GOES–MRMS Convection Initiation Nowcasting
 message: >-
-  If you use this code, cite this repository and the accompanying manuscript:
-  Spatially Explicit Deep Learning Nowcasting of Convection Initiation Using
-  GOES and MRMS. Publication metadata will be added when available.
+  If you use this software, please cite this repository.
+  If you use the CI35 catalogue, please also cite the associated dataset:
+  https://doi.org/10.5281/zenodo.24179651
 authors:
   - family-names: Crampe
     given-names: Marc
