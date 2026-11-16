@@ -1,3 +1,14 @@
-# Redistribution review required
+# Historical miniature-sample notice
 
-This miniature TEST case contains derived GOES ABI brightness temperatures and MRMS reflectivity. Its technical provenance is recorded in `mini_case_metadata.json`. Confirm NOAA and any applicable source-data redistribution and attribution requirements before making the file public. Do not interpret its presence in this private candidate as approval for redistribution.
+This file records a redistribution-review notice included during preparation
+of the original private candidate. It does not describe the current release
+status.
+
+The released miniature sample contains research-derived NOAA GOES ABI and
+MRMS observations. Current source attribution and processing information
+are documented in:
+
+- [Data attribution](../examples/DATA_ATTRIBUTION.md)
+- [Sample metadata](../examples/mini_case_metadata.json)
+
+The sample is a research example, not an official NOAA forecast.
