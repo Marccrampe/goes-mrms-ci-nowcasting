@@ -30,10 +30,11 @@ grant permission to use NOAA marks.
 - [NOAA NWS disclaimer and public-domain information](https://www.weather.gov/disclaimer)
 - [NOAA NSSL disclaimer](https://www.nssl.noaa.gov/disclaimer.php)
 
-This note records attribution and source-policy links. It does not assert
-institutional approval or relicense all components as Creative Commons. The
-miniature sample's original redistribution-review flag is preserved in metadata;
-the previous notice is retained in
-`provenance/original_sample_redistribution_notice.md`. Clearing that flag requires
-an actual rights review of the included derived assets. The research authors
-should record the outcome before declaring the data release unrestricted.
+The included examples contain transformed NOAA GOES ABI and MRMS
+observations, together with research-derived masks, CI targets and model
+outputs. Their sources and processing are documented above.
+
+The source-data policies permit reuse of these observations. These derived
+examples are not original, unaltered NOAA products and do not imply NOAA
+endorsement. The repository's MIT licence applies to the original software;
+it does not replace the source-data policies or third-party software licences..
