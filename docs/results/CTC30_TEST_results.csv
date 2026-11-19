@@ -1,0 +1,2 @@
+model,window,threshold,threshold_units,n_issuances,TP,FP,FN,CSI,POD,FAR,source,matching,lag_minutes,box_pixels,nominal_cooling_K
+CTC30 validation-selected (minimum nominal cooling 1 K),0–30,0.5,K/15min,4712,3853,72248,6263,0.04678014666601914,0.3808817714511665,0.9493699162954494,CTC30_TEST_results.csv,strict CI35 one-to-one 5 km,30,15,1.0

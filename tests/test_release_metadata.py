@@ -17,7 +17,10 @@ class ReleaseMetadataTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256((folder/source['package_file']).read_bytes()).hexdigest(), source['sha256'])
         with (folder/'main_TEST_results.csv').open() as f:
             rows = list(csv.DictReader(f))
-        self.assertEqual(len(rows), 5)
+        self.assertEqual(len(rows), 4)
+        ctc = [row for row in rows if row["model"].startswith("CTC30")]
+        self.assertEqual(len(ctc), 1)
+        self.assertEqual(tuple(int(ctc[0][k]) for k in ["TP", "FP", "FN"]), (3853, 72248, 6263))
         for row in rows:
             tp, fp, fn = (int(row[k]) for k in ['TP', 'FP', 'FN'])
             self.assertEqual(int(row['n_issuances']), 4712)

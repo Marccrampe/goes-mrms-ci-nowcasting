@@ -37,12 +37,12 @@ isotonic-calibration analysis is separate; no calibration map is silently applie
 Strict CI35, one-to-one matching within **5 km**, minimum **two forecast-grid
 pixels** per forecast object, and **4,712 common TEST issuances**. Operating
 thresholds are frozen before TEST; probability thresholds were selected on
-VALIDATION. CTC fixed uses its literature reference threshold.
+VALIDATION. The CTC setting was selected under a minimum nominal cooling
+of 1 K; TEST was not used for selection.
 
 | Model | Window (min) | Threshold | CSI | POD | FAR |
 |---|---|---:|---:|---:|---:|
-| CTC fixed | 0–30 | 4 K/15 min | 0.020 | 0.201 | 0.979 |
-| CTC VAL-selected | 0–30 | 0.5 K/15 min | 0.032 | 0.421 | 0.966 |
+| CTC 30 min · VAL-selected | 0–30 | nominal 1 K / 30 min | 0.047 | 0.381 | 0.949 |
 | GOES-only ResUNet | 0–30 | 0.040 | 0.093 | 0.215 | 0.859 |
 | GOES+MRMS final ResUNet | 0–30 | 0.075 | 0.163 | 0.400 | 0.784 |
 | GOES+MRMS final ResUNet | 30–60 | 0.015 | 0.111 | 0.308 | 0.853 |
@@ -53,6 +53,13 @@ Exact scores, TP/FP/FN and archived sources are in
 not scores computed on the demo crop. A trained checkpoint alone is insufficient
 to reproduce the complete TEST evaluation; the frozen evaluation cohort and
 canonical observations are also required.
+
+The CTC baseline uses GOES C13 cooling over a nominal **30-min interval**,
+with **15 × 15-pixel averaging** and a **0.5 K/15 min rate threshold**,
+equivalent to **1 K over exactly 30 min**. The implementation normalizes by
+the actual scan-time separation. Selection used VALIDATION with a minimum
+nominal cooling of 1 K. Exact strict TEST CSI is **0.046780**
+(TP = 3,853; FP = 72,248; FN = 6,263).
 
 The CTC comparison is a satellite cloud-top-cooling baseline. It is **not** a
 radar-persistence or radar-extrapolation baseline. The notebook's persistence

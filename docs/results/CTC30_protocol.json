@@ -1,0 +1,31 @@
+{
+  "configuration": {
+    "lag_minutes": 30,
+    "smoothing_pixels": [
+      15,
+      15
+    ],
+    "rate_threshold_K_per_15min": 0.5,
+    "nominal_cooling_K": 1.0,
+    "forecast_window_minutes": [
+      0,
+      30
+    ]
+  },
+  "time_handling": "Cooling rate uses actual scan-time separation; 1 K over 30 min is the nominal equivalence, not a replacement of the archived rate implementation.",
+  "selection": "Selected on VALIDATION with minimum nominal absolute cooling of 1 K; the unconstrained 0.1-K validation optimum is not the adopted baseline. TEST was not used to select the threshold.",
+  "test": {
+    "n_issuances": 4712,
+    "TP": 3853,
+    "FP": 72248,
+    "FN": 6263,
+    "CSI": 0.04678014666601914,
+    "POD": 0.3808817714511665,
+    "FAR": 0.9493699162954494
+  },
+  "source": "Author-supplied completed CTC30 run output in this session",
+  "source_run": "figure_finale/CTC30_revision/run_20261117T222208Z_3805128",
+  "source_evaluation": "experiments/CTC_intervals_20_30/run_20261117T202636Z_3790481",
+  "provenance_scope": "Counts transcribed from the completed cluster log supplied by the author; scores recomputed from those counts. Original cluster result-file bytes and cohort hash were not supplied in this update; no source-file checksum is invented.",
+  "omitted_fields": "CTC mean/median object sizes and gradient diagnostics were not supplied for this revision and remain empty, rather than retaining old values."
+}

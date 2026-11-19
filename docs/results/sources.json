@@ -1,8 +1,9 @@
 [
   {
-    "source": "audit_GOES_CTC_sources/experiments/ci_uwci_ctc_baseline_v1/comparison_with_resunet.csv",
+    "source": "Author-maintained comparison: final CTC30 cluster-log counts plus unchanged archived neural rows",
     "package_file": "comparison_with_resunet.csv",
-    "sha256": "5bc4be0fd9f060ca00fdb57edcf7b87ea02bc900d57530409bef129a8be3594d"
+    "sha256": "77066da17a7294b48b7c4df0fe26ffa494cfe1192df80b7d89496f1ce9b9c9bd",
+    "note": "Original comparison CTC rows replaced; see CTC30_protocol.json for count provenance."
   },
   {
     "source": "figure3_update/spatial_audit/sources/experiments/CI_Supplementary_Figures_v1/data/joint_specialist_scores.csv",
@@ -13,5 +14,10 @@
     "source": "audit_GOES_CTC_sources/experiments/ci_I4_GOES_only_controlled_v1/config.json",
     "package_file": "GOES_only_training_config.json",
     "sha256": "34b15e00eee98301cb0e773244d279078b469b668e6782328b8b4d811c9a9b51"
+  },
+  {
+    "source": "Completed CTC30 cluster log supplied by author; see CTC30_protocol.json",
+    "package_file": "CTC30_TEST_results.csv",
+    "sha256": "9fb449207b7af21f4e408179c5efcb5514696e782e2924c6dc6c97e93b53b47a"
   }
 ]
